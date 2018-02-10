@@ -6,6 +6,7 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ProduitsComponent } from './produits/produits.component';
 import { FormProduitComponentComponent } from './form-produit-component/form-produit-component.component';
+import { ProduitServiceService } from './produit-service.service';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { FormProduitComponentComponent } from './form-produit-component/form-pro
   imports: [
     BrowserModule,FormsModule
   ],
-  providers: [],
+  providers: [ProduitServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

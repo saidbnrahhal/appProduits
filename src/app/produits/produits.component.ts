@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Produit } from './produit';
 import {TabProduits} from './mock-produits'
+import { ProduitServiceService } from '../produit-service.service';
 
 @Component({
   selector: 'app-produits',
@@ -10,11 +11,12 @@ import {TabProduits} from './mock-produits'
 export class ProduitsComponent implements OnInit {
 
   produit: Produit = null;
-  produits: Produit[]=TabProduits;
+  produits: Produit[];
 
-  constructor() { }
+  constructor(private pdtService :ProduitServiceService) { }
 
   ngOnInit() {
+    this.produits = this.pdtService.getProduits();
   }
 
   choixProduit(pdt){

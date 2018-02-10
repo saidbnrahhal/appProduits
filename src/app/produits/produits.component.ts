@@ -16,7 +16,7 @@ export class ProduitsComponent implements OnInit {
   constructor(private pdtService :ProduitServiceService) { }
 
   ngOnInit() {
-    this.produits = this.pdtService.getProduits();
+    this.pdtService.getProduits().subscribe(pdts =>this.produits =pdts);
   }
 
   choixProduit(pdt){

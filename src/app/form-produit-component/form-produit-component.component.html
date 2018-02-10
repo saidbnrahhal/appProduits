@@ -1,0 +1,16 @@
+<div *ngIf="produitSelect != null">
+  <h2>{{ produitSelect.designation|uppercase }} Details</h2>
+  <div>
+    <span>id: </span>{{produitSelect.id}}
+  </div>
+  <!--input -->
+  <div>
+      Désignation : <input type="text" [(ngModel)]="produitSelect.designation" >
+  </div>
+  <div>
+      Catégorie : <input type="text" [(ngModel)]="produitSelect.categorie" >
+  </div>
+  <div>
+      Prix : <input type="text" [(ngModel)]="produitSelect.prix">
+  </div>
+</div>

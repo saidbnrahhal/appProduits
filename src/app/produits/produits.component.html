@@ -11,25 +11,8 @@
             </ul>
         </td>
         <td>
-                <div *ngIf="produit != null">
-                        <h2>{{ produit.designation|uppercase }} Details</h2>
-                        <div>
-                          <span>id: </span>{{produit.id}}
-                        </div>
-                        <!--input -->
-                        <div>
-                            Désignation : <input type="text" [(ngModel)]="produit.designation" >
-                        </div>
-                        <div>
-                            Catégorie : <input type="text" [(ngModel)]="produit.categorie" >
-                        </div>
-                        <div>
-                            Prix : <input type="text" [(ngModel)]="produit.prix">
-                        </div>
-                </div>
+            <app-form-produit [produitSelect] = "produit" ></app-form-produit>
         </td>
     </tr>
-    
-
 </table>
 

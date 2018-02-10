@@ -9,7 +9,10 @@ export class ProduitServiceService {
   constructor() { }
 
   getProduits() : Observable<Produit[]> {
+
     return of(TabProduits);
   }
-
+  getProduit(id:number):Observable<Produit>{
+    return of(TabProduits.find(pdt => pdt.id === id));
+  }
 }

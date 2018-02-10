@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Produit } from '../produits/produit';
+import { ProduitServiceService } from '../produit-service.service';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-form-produit',
@@ -10,9 +13,22 @@ export class FormProduitComponentComponent implements OnInit {
 
   @Input()
   produitSelect : Produit;
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private ptdService :ProduitServiceService,
+    private location : Location) { }
+
 
   ngOnInit() {
+    this.getProduit();
   }
 
+  getProduit():void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.ptdService.getProduit(id).subscribe(pdt =>this.produitSelect = pdt);
+  }
+
+  goBack():void {
+    this.location.back();
+  }
 }
